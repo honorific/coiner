@@ -3,6 +3,7 @@ import {create} from 'zustand'
 
 const homeStore = create((set) => ({
   coins: [],
+  trending: [],
   query: '',
 
   setQuery: (e) => {
@@ -11,18 +12,22 @@ const homeStore = create((set) => ({
   },
 
   searchCoins: async () => {
-    const {query} = homeStore.getState()
-    const res = await axios.get(
-      `https://api.coingecko.com/api/v3/search?query=${query}`,
-    )
-    const coins = res.data.coins.map((coin) => {
-      return {
-        name: coin.name,
-        image: coin.large,
-        id: coin.id,
-      }
-    })
-    set({coins: coins})
+    const {query, trending} = homeStore.getState()
+    if (query.length > 2) {
+      const res = await axios.get(
+        `https://api.coingecko.com/api/v3/search?query=${query}`,
+      )
+      const coins = res.data.coins.map((coin) => {
+        return {
+          name: coin.name,
+          image: coin.large,
+          id: coin.id,
+        }
+      })
+      set({coins: coins})
+    } else {
+      set({coins: trending})
+    }
   },
 
   fetchCoins: async () => {
@@ -37,7 +42,7 @@ const homeStore = create((set) => ({
         priceBTC: coin.item.price_btc,
       }
     })
-    set({coins: coins})
+    set({coins: coins, trending: coins})
   },
 }))
 
