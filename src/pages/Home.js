@@ -19,7 +19,7 @@ const Home = () => {
       <Header />
       <header className='home-search'>
         <div className='width'>
-          <h2>Searchfor a coin: </h2>
+          <h2>Search for a coin: </h2>
           <input type='text' value={store.query} onChange={store.setQuery} />
         </div>
       </header>
