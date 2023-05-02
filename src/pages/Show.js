@@ -10,6 +10,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
+import Header from '../components/Header'
 
 const Show = () => {
   const store = showStore()
@@ -25,6 +26,7 @@ const Show = () => {
   } else {
     return (
       <div>
+        <Header back />
         <header>
           <img src={store.data?.image?.large} />
           <h2>
