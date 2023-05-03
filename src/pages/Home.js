@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import homeStore from '../stores/homeStore'
 import {Link} from 'react-router-dom'
 import Header from '../components/Header'
+import ListItem from '../components/ListItem'
 
 const Home = () => {
   const store = homeStore()
@@ -24,11 +25,7 @@ const Home = () => {
         </div>
       </header>
       {store.coins.map((coin) => {
-        return (
-          <div key={coin.id}>
-            <Link to={`/${coin.id}`}>{coin.name}</Link>
-          </div>
-        )
+        return <ListItem key={coin.id} coin={coin} />
       })}
     </div>
   )
