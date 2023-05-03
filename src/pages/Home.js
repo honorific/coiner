@@ -24,9 +24,14 @@ const Home = () => {
           <input type='text' value={store.query} onChange={store.setQuery} />
         </div>
       </header>
-      {store.coins.map((coin) => {
-        return <ListItem key={coin.id} coin={coin} />
-      })}
+      <div className='home-cryptos'>
+        <div className='width'>
+          <h2>Trending coins</h2>
+          {store.coins.map((coin) => {
+            return <ListItem key={coin.id} coin={coin} />
+          })}
+        </div>
+      </div>
     </div>
   )
 }
