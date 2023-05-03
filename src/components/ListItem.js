@@ -9,8 +9,8 @@ const ListItem = ({coin}) => {
         </span>
         <span className='home-crypto-name'>{coin.name}</span>
         <span className='home-crypto-prices'>
-          <span>{coin.priceBTC} BTC</span>
-          <span>{coin.priceUsd} USD</span>
+          <span className='home-crypto-btc'>{coin.priceBTC} BTC</span>
+          <span className='home-crypto-usd'>({coin.priceUsd} USD)</span>
         </span>
       </Link>
     </div>
