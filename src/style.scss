@@ -83,10 +83,15 @@ img {
 }
 
 .home-crypto {
-  display: flex;
-  align-items: center;
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd;
+  a {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  span {
+    display: block;
+  }
 }
 
 .home-crypto-image {
